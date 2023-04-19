@@ -1,0 +1,72 @@
+body {
+    background-image: url("notas-dolar.jpg");
+    background-size: cover;
+  }
+  
+  /* estilos para o formulário */
+  form {
+    width: 500px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  }
+
+  .firstLabel{
+    margin-left: 45px;
+  }
+  
+  /* estilos para os inputs e labels */
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding: 2px;
+  }
+  
+  input
+  {
+    background-color: rgb(236, 233, 233);
+  }
+
+  input[type="checkbox"], input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  input[type="text"], select {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="number"], input[type="date"]{
+    width: 30%;
+    border-radius: 5px;
+    border: none;
+  }
+
+
+  select {
+    background-color: rgb(238, 232, 232);
+  }
+
+
+  /* estilos para o botão de envio */
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    margin-left: 40%;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+
