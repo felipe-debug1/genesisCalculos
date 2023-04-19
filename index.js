@@ -92,7 +92,13 @@ function calcValue(value, tempo, ges, dia, vDolar)
             {
                 if (dia == 5 && dia == 6)
                 {
-                    if (value >= 10000)
+
+                    if (value >= 100000)
+                    {
+                        value += (Number(value.toString().substring(0, 5)) * 10) * 0.015 
+                    }
+
+                    else if (value >= 10000)
                     {
                         value += (Number(value.toString().substring(0, 4)) * 10) * 0.015
                     }
@@ -116,7 +122,12 @@ function calcValue(value, tempo, ges, dia, vDolar)
 
                 else 
                 {
-                    if (value >= 10000)
+                    if (value >= 100000)
+                    {
+                        value += (Number(value.toString().substring(0, 5)) * 10) * 0.025 
+                    }
+
+                    else if (value >= 10000)
                     {
                         value += (Number(value.toString().substring(0, 4)) * 10) * 0.025
                     }
@@ -142,8 +153,12 @@ function calcValue(value, tempo, ges, dia, vDolar)
 
                 if(dia != 5 && dia != 6)
                 {
+                    if (value >= 100000)
+                    {
+                        value += (Number(value.toString().substring(0, 5)) * 10) * 0.025 
+                    }
 
-                    if (value >= 10000)
+                    else if (value >= 10000)
                     {
                         value += (Number(value.toString().substring(0, 4)) * 10) * 0.025
                     }
@@ -177,7 +192,6 @@ function calcValue(value, tempo, ges, dia, vDolar)
         }
         
         
-
         Swal.fire({
             title: 'Aí sim!',
             html: `O montante final (sem levar em conta bônus, comissões e variação de amplitude) 
@@ -222,31 +236,41 @@ function calcTime(value, target, ges, dia)
             {
                 if (dia == 5 && dia == 6)
                 {
-                    if (value >= 10000)
+                    if (value >= 100000)
                     {
-                        value += (Number(value.toString().substring(0, 4)) * 10) * 0.015
+                        value += (Number(value.toString().substring(0, 5)) * 10) * 0.025 
                     }
 
-                    if (value >= 1000)
+                    else if (value >= 10000)
                     {
-                        value += (Number(value.toString().substring(0, 3)) * 10) * 0.015
+                        value += (Number(value.toString().substring(0, 4)) * 10) * 0.025
+                    }
+
+                    else if (value >= 1000)
+                    {
+                        value += (Number(value.toString().substring(0, 3)) * 10) * 0.025
                     }
 
                     else if(value >= 100)
                     {
-                        value += (Number(value.toString().substring(0, 2)) * 10) * 0.015
+                        value += (Number(value.toString().substring(0, 2)) * 10) * 0.025
                     }
 
                     else
                     {
-                        value += (Number(value.toString().substring(0, 1)) * 10) * 0.015
+                        value += (Number(value.toString().substring(0, 1)) * 10) * 0.025
                     }
 
                 }
 
                 else 
                 {
-                    if (value >= 10000)
+                    if (value >= 100000)
+                    {
+                        value += (Number(value.toString().substring(0, 5)) * 10) * 0.025 
+                    }
+
+                    else if (value >= 10000)
                     {
                         value += (Number(value.toString().substring(0, 4)) * 10) * 0.025
                     }
@@ -272,8 +296,12 @@ function calcTime(value, target, ges, dia)
 
                 if(dia != 5 && dia != 6)
                 {
+                    if (value >= 100000)
+                    {
+                        value += (Number(value.toString().substring(0, 5)) * 10) * 0.025 
+                    }
 
-                    if (value >= 10000)
+                    else if (value >= 10000)
                     {
                         value += (Number(value.toString().substring(0, 4)) * 10) * 0.025
                     }
@@ -315,6 +343,3 @@ function calcTime(value, target, ges, dia)
         })   
     }
 }
-
-
-
