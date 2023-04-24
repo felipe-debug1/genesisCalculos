@@ -33,12 +33,12 @@
 
         <label>
           Valor inicial (em dólares):
-          <input type="text" name="valor-inicial" placeholder="0,00" id="vInicial" pattern="\d+(\,\d{2})?" title="Por favor, digite um valor válido (ex: 10,00)">
+          <input type="text" name="valor-inicial" placeholder="0,00" id="vInicial" pattern="\d+(\.\d{2})?" title="Por favor, digite um valor válido (ex: 10,00)">
         </label>
 
-        <label>
+        <label id="v_esperado">
             Montante esperado (em dólares):
-            <input type="text" name="valor-final" id="vFinal" placeholder="0,00" pattern="\d+(\,\d{2})?" title="Por favor, digite um valor válido (ex: 10,00)">
+            <input type="text" name="valor-final" id="vFinal" placeholder="0,00" pattern="\d+(\.\d{2})?"  title="Por favor, digite um valor válido (ex: 10,00)">
           </label>
           
           <label>
@@ -47,10 +47,15 @@
           </label>
         
         
-          <label>
+          <label id="dias-proje">
           Tempo (em dias) da projeção:
-          <input type="number" id="tempo" name="tempo-projecao" min="1" max="1000" step="1">
+          <input type="number" id="tempo" name="tempo-projecao" min="1" max="1000" step="1" onchange="addDays()">
         </label>
+
+        <label id="fim-proje">
+            Data de término da projeção:
+            <input type="date" id="data-fim" disabled="true" readonly>
+          </label>
 
 
         <label>
@@ -71,48 +76,42 @@
         const checkbox1 = document.getElementById("check1");
         const checkbox2 = document.getElementById("check2");
 
+        const labels = document.querySelectorAll("label");
+
         function checkOnlyOne(checkbox) {
             if (checkbox.value == "valor")
             {
                 checkbox2.checked = false
-                
-                const inputs= document.querySelectorAll("input")
-                inputs.forEach(element => {
-                    if(element.name == "valor-final")
-                    {
-                        element.disabled = true
-                        element.style.background = "rgb(241, 195, 195)";
-                    }
-                    else
-                    {
-                        if(element.type != "submit")
-                        {
-                            element.disabled = false
-                            element.style.background = "rgb(236, 233, 233)";
-                        }
-                    }
+
+                labels.forEach(element => {
+                  if(element.id == "v_esperado")
+                  {
+                    element.hidden = true
+                  }
+                  else
+                  {
+                    element.hidden = false
+                  }
                 });
+
+                
             }   
             else
             {
                 checkbox1.checked = false
-
-                const inputs= document.querySelectorAll("input")
-                inputs.forEach(element => {
-                    if(element.name == "tempo-projecao")
-                    {
-                        element.disabled = true
-                        element.style.background = "rgb(241, 195, 195)";
-                    }
-                    else
-                    {
-                        if(element.type != "submit")
-                        {
-                            element.disabled = false
-                            element.style.background = "rgb(236, 233, 233)";
-                        }
-                    }
+                
+                labels.forEach(element => {
+                  if(element.id == "dias-proje" || element.id == "fim-proje")
+                  {
+                    element.hidden = true
+                  }
+                  else
+                  {
+                    element.hidden = false
+                  }
                 });
+
+
             }
         }
 
