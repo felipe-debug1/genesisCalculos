@@ -1,3 +1,20 @@
+function addDays() {
+    
+  let data = new Date(document.getElementById("data").value);
+  let dias = parseInt(document.getElementById("tempo").value);
+  
+  // Adicionar dias à data
+  data.setDate(data.getDate() + dias);
+  
+  // Formatar a nova data como uma string no formato ISO
+  let resultado = data.toISOString().substring(0, 10);
+  
+  // Definir o valor do campo de entrada "resultado"
+  document.getElementById("data-fim").value = resultado;
+  
+}
+
+
 function controller(vDolar)
 {       
 
@@ -37,7 +54,7 @@ function controller(vDolar)
     
     if(check1.checked)
     {
-        calcValue(value, tempo, ges, dia, vDolar)        
+        calcValue(value, tempo, ges, dia, vDolar)    
         
     }
 
